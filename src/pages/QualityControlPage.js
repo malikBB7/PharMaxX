@@ -9,8 +9,8 @@ const QualityControlPage = () => {
     const [error, setError] = useState(null);
     const [filters, setFilters] = useState({ name: '', salary: '' });
 
-    const siteId = '893e74ef-8bb7-454f-a281-e3b6a46bfc55,681fcf29-7087-411b-8d21-5aad880efa27';
-    const listId = '2a03a730-4ca3-42c3-9271-5a4987a22002';
+    const siteId = process.env.REACT_APP_SITE_ID;
+    const listId = process.env.REACT_APP_LISTT_ID;
 
     const fetchDataFromAPI = async () => {
         const accessTokenResponse = await getAccessToken();
