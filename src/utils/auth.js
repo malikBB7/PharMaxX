@@ -5,7 +5,7 @@ export const getAccessToken = async () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            clientId: process.env.REACT_APP_CLIENT_ID, // Use environment variables
+            clientId: process.env.REACT_APP_CLIENT_ID,
             tenantId: process.env.REACT_APP_TENANT_ID,
             clientSecret: process.env.REACT_APP_CLIENT_SECRET,
         }),

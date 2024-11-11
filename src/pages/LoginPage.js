@@ -25,7 +25,7 @@ class LoginPage extends React.Component {
     try {
         const { access_token } = await getAccessToken();
 
-        const response = await fetch(`https://graph.microsoft.com/v1.0/sites/893e74ef-8bb7-454f-a281-e3b6a46bfc55,681fcf29-7087-411b-8d21-5aad880efa27/lists/69a817a4-3bbf-4491-aa95-68e700fe1d3e/items?$expand=fields($select=email,password)`, {
+        const response = await fetch(`https://graph.microsoft.com/v1.0/sites/${REACT_APP_SITE_ID}/lists/${REACT_APP_LISTT_ID}/items?$expand=fields($select=email,password)`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
