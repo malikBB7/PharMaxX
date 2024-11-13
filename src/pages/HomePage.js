@@ -20,7 +20,7 @@ const HomePage = ({ isSidebarOpen }) => {
         <IconWithLink imageSrc={DataAnalytics} link="/data-analytics" altText="Data Analytics" heading="Data Analytics" />
       </div>
       <div className="icon-row">
-        <IconWithLink imageSrc={SafetyControl} link="/safety-control" altText="Safety Control" heading="Safety Control" />
+        <IconWithLink imageSrc={SafetyControl} lin k="/safety-control" altText="Safety Control" heading="Safety Control" />
         <IconWithLink imageSrc={Industry} link="/industry" altText="Industry" heading="Industry" />
         <IconWithLink imageSrc={Production} link="/production" altText="Production" heading="Production" />
         <IconWithLink imageSrc={SolventRecovery} link="/solvent-recovery" altText="Solvent Recovery" heading="Solvent Recovery" />

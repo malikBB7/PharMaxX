@@ -1,30 +1,18 @@
-// Example of how you might get an access token with MSAL
-import { PublicClientApplication } from '@azure/msal-browser';
-
-const msalConfig = {
-  auth: {
-    clientId: process.env.REACT_APP_CLIENT_ID, // Make sure this is set
-    authority: 'https://login.microsoftonline.com/your-tenant-id',
-  },
-};
-
-const msalInstance = new PublicClientApplication(msalConfig);
-
 export const getAccessToken = async () => {
-  try {
-    const accounts = msalInstance.getAllAccounts();
-    if (accounts.length === 0) {
-      throw new Error('User is not logged in');
-    }
-
-    const response = await msalInstance.acquireTokenSilent({
-      scopes: ['User.Read', 'Sites.Read.All'], // Add appropriate scopes for your API
-      account: accounts[0],
+    const response = await fetch('http://localhost:5000/get-access-token', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            clientId: process.env.REACT_APP_CLIENT_ID,
+            tenantId: process.env.REACT_APP_TENANT_ID,
+            clientSecret: process.env.REACT_APP_CLIENT_SECRET,
+        }),
     });
 
-    return response.accessToken; // Return the access token
-  } catch (error) {
-    console.error("Failed to get access token", error);
-    throw new Error('Failed to get access token');
-  }
+    if (!response.ok) {
+        throw new Error('Failed to fetch access token');
+    }
+    return await response.json();
 };
