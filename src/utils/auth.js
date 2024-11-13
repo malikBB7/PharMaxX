@@ -1,5 +1,5 @@
 export const getAccessToken = async () => {
-    const response = await fetch('https://pharmaxx.vercel.app/login/api/get-access-token', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/get-access-token`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
