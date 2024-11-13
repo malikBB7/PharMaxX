@@ -1,5 +1,5 @@
 export const getAccessToken = async () => {
-    const response = await fetch('http://localhost:5000/get-access-token', {
+    const response = await fetch('https://pharmaxx.vercel.app/login/api/get-access-token', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
